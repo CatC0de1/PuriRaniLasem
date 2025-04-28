@@ -1,0 +1,32 @@
+/* Gaya umum untuk grid masonry */
+.masonry {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Kolom fleksibel */
+  gap: 10px;
+  grid-auto-rows: masonry; /* Menambahkan gaya agar grid bekerja seperti masonry */
+}
+
+/* Gaya item di dalam grid */
+.masonry-items {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  /* Tambahkan aturan yang lebih baik untuk gambar */
+  display: block;
+  border-radius: 8px; /* Jika ingin sudut gambar lebih halus */
+  overflow: hidden;
+}
+
+/* Media query untuk layar lebih kecil */
+@media (min-width: 640px) {
+  .masonry {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Lebar kolom sedikit lebih kecil */
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Kolom lebih kecil di layar besar */
+  }
+}

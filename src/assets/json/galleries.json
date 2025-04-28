@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Image 1",
+    "src": "/galleries/mua1.webp"
+  },
+  {
+    "id": 2,
+    "title": "Image 2",
+    "src": "/galleries/mua2.webp"
+  },
+  {
+    "id": 3,
+    "title": "Image 3",
+    "src": "/galleries/mua3.webp"
+  },
+  {
+    "id": 4,
+    "title": "Image 4",
+    "src": "/galleries/mua4.webp"
+  },
+  {
+    "id": 5,
+    "title": "Image 5",
+    "src": "/galleries/mua5.webp"
+  },
+  {
+    "id": 6,
+    "title": "Image 6",
+    "src": "/galleries/mua6.webp"
+  },
+  {
+    "id": 7,
+    "title": "Image 7",
+    "src": "/galleries/dekor1.webp"
+  },
+  {
+    "id": 8,
+    "title": "Image 8",
+    "src": "/galleries/dekor2.webp"
+  },
+  {
+    "id": 9,
+    "title": "Image 9",
+    "src": "/galleries/dekor3.webp"
+  }
+]
