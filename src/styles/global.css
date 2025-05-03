@@ -17,23 +17,63 @@
   }
 
   .title {
-    @apply text-4xl font-bold text-(--primary-color);
+    @apply font-bold text-(--primary-color)
+    text-2xl
+    md:text-3xl
+    lg:text-4xl;
   }
 
   .subtitle {
-    @apply text-2xl font-semibold text-(--secondary-color);
+    @apply font-semibold text-(--secondary-color)
+    text-lg
+    md:text-xl
+    lg:text-2xl;
   }
 
   .ornamen {
     @apply transform 
     scale-x-18 scale-y-18
     md:scale-x-38 md:scale-y-38 
-    lg:scale-x-60 lg:scale-y-60
-    /* xl:scale-x xl:scale-y */
-    2xl:scale-x-70 2xl:scale-y-70;
+    lg:scale-x-55 lg:scale-y-48
+    xl:scale-x-60 xl:scale-y-58
+    2xl:scale-x-70 2xl:scale-y-68;
   }
 
   .advance-gap {
-    @apply -my-45;
+    @apply w-full flex flex-col justify-center items-center
+    -my-50 gap-3 
+    md:-my-35 md:gap-4
+    lg:-my-20 lg:gap-5
+    xl:-my-10 xl:gap-6
+    2xl:-my-5;
   }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+/* Warna scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* warna latar belakang track scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fae220; /* warna "handle" scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a100; /* warna saat dihover */
+}
+
+/* Firefox || scrollbar-color: <thumb-color> <track-color>; */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fae220 #111;
 }

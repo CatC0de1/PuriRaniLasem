@@ -1,5 +1,6 @@
 ---
 import Ornamen from '../assets/ornamen.svg';
+// import Ornamen from './partials/Ornamen.tsx';
 import galleries from '../assets/json/galleries.json';
 import Masonry from './partials/Masonry.tsx';
 
@@ -14,19 +15,21 @@ const images: ImageItem[] = galleries;
 
 ---
 
-<section class="section flex flex-col justify-center items-center w-full">
+<section class="section flex flex-col justify-center items-center w-full" id="gallery">
   <Ornamen class="ornamen rotate-180" />
   
-  <main class="flex flex-col justify-center items-center w-full gap-5">
-    <h1 class="title playwrite-ro">
-      Galeri
-    </h1>
-    <h2 class="subtitle mb-5">
-      Lorem ipsum dolor sit amet.
-    </h2>
-    <!-- Kirim URL gambar ke Masonry -->
+  <main class="advance-gap">
+    <div class="flex flex-col items-center justify-center gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+      <h1 class="title playwrite-ro">
+        Galeri
+      </h1>
+      <h2 class="subtitle mb-5">
+        Lorem ipsum dolor sit amet.
+      </h2>
+    </div>
 
     <Masonry images={images} client:visible  />
+
   </main>
 
   <Ornamen class="ornamen" />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Masonry from 'react-masonry-css';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,25 +14,25 @@ interface MasonryGalleryProps {
 }
 
 const breakpointColumnsObj = {
-  default: 4,
-  1024: 3,
-  768: 2,
-  500: 1,
+  default: 5,
+  1024: 4,
+  768: 3,
+  500: 2,
 };
 
 export default function MasonryGallery({ images }: MasonryGalleryProps) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
   const [imageDimensions, setImageDimensions] = useState<{ width: number; height: number } | null>(null);
   
   const filteredImages =
-    selectedCategory === 'all'
+    selectedCategory === 'Semua'
       ? images
       : images.filter((img) => img.category === selectedCategory);
 
   const selectedImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
-  const categories = ['all', ...Array.from(new Set(images.map((img) => img.category)))];
+  const categories = ['Semua', ...Array.from(new Set(images.map((img) => img.category)))];
 
   const paginate = (newDirection: number) => {
     if (selectedIndex === null) return;
@@ -64,6 +64,18 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
     img.onload = () => {
       setImageDimensions({ width: img.naturalWidth, height: img.naturalHeight });
     };
+  }, [selectedImage]);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.classList.add('overflow-hidden')
+    } else {
+      document.body.classList.remove('overflow-hidden')
+    }
+
+    return () => {
+      document.body.classList.remove('overflow-hidden')
+    }
   }, [selectedImage]);
 
   const swipeConfidenceThreshold = 10000;
@@ -102,13 +114,13 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
               setSelectedCategory(cat);
               setSelectedIndex(null);
             }}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+            className={`bg-[#000] px-3 py-1 rounded-2xl text-sm font-medium transition border-1 md:border-2 ${
               selectedCategory === cat
-                ? 'bg-black text-white'
-                : 'bg-gray-200 hover:bg-gray-300'
+                ? 'text-[#fae220] border-[#fae220]'
+                : 'hover:bg-[#111]'
             }`}
           >
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            {cat.charAt(0) + cat.slice(1)}
           </button>
         ))}
       </div>
@@ -163,8 +175,8 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
                 </svg>
               </button>
 
-              <div className="space-x-2">
-                {selectedIndex! > 0 && (
+              <div className="space-x-2 flex justify-between w-20">
+                {selectedIndex! > 0 ? (
                   <button
                     onClick={() => paginate(-1)}
                     className="bg-white rounded-full p-2 shadow hover:bg-gray-200 transition"
@@ -174,8 +186,10 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
                       <polyline points="15 18 9 12 15 6" />
                     </svg>
                   </button>
+                ) : (
+                  <div className="w-10" />
                 )}
-                {selectedIndex! < filteredImages.length - 1 && (
+                {selectedIndex! < filteredImages.length - 1 ? (
                   <button
                     onClick={() => paginate(1)}
                     className="bg-white rounded-full p-2 shadow hover:bg-gray-200 transition"
@@ -185,6 +199,8 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
                   </button>
+                ) : (
+                  <div className="w-10" />
                 )}
               </div>
             </div>
@@ -192,7 +208,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
             {/* Swipeable Image */}
             <motion.div
               key={selectedImage.src}
-              className="max-w-4xl w-full px-4"
+              className="max-w-4xl w-full px-4 flex justify-center items-center"
               custom={direction}
               initial={{ x: direction * 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
