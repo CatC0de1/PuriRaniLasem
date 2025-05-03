@@ -3,18 +3,19 @@ import Ornamen from '../assets/ornamen.svg';
 import galleries from '../assets/json/galleries.json';
 import Masonry from './partials/Masonry.tsx';
 
-interface GalleryItem {
+interface ImageItem {
   id: number;
   title: string;
   src: string;
+  category: string;
 }
 
-// @ts-ignore
-const images: string[] = galleries.map((item: GalleryItem) => item.src);
+const images: ImageItem[] = galleries;
+
 ---
 
 <section class="section flex flex-col justify-center items-center w-full">
-  <Ornamen class="transform rotate-180 scale-x-70 scale-y-30 -mb-40" />
+  <Ornamen class="ornamen rotate-180" />
   
   <main class="flex flex-col justify-center items-center w-full gap-5">
     <h1 class="title playwrite-ro">
@@ -24,7 +25,9 @@ const images: string[] = galleries.map((item: GalleryItem) => item.src);
       Lorem ipsum dolor sit amet.
     </h2>
     <!-- Kirim URL gambar ke Masonry -->
-    <Masonry client:only="react" images={images} />
+
+    <Masonry images={images} client:visible  />
   </main>
-  <Ornamen class="transform scale-x-70 scale-y-40 -mt-30" />
+
+  <Ornamen class="ornamen" />
 </section>

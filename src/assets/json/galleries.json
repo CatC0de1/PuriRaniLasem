@@ -2,46 +2,55 @@
   {
     "id": 1,
     "title": "Image 1",
-    "src": "/galleries/mua1.webp"
+    "src": "/galleries/mua1.webp",
+    "category": "Makeup"
   },
   {
     "id": 2,
     "title": "Image 2",
-    "src": "/galleries/mua2.webp"
+    "src": "/galleries/mua2.webp",
+    "category": "Makeup"
   },
   {
     "id": 3,
     "title": "Image 3",
-    "src": "/galleries/mua3.webp"
+    "src": "/galleries/mua3.webp",
+    "category": "Makeup"
   },
   {
     "id": 4,
     "title": "Image 4",
-    "src": "/galleries/mua4.webp"
+    "src": "/galleries/mua4.webp",
+    "category": "Makeup"
   },
   {
     "id": 5,
     "title": "Image 5",
-    "src": "/galleries/mua5.webp"
+    "src": "/galleries/mua5.webp",
+    "category": "Makeup"
   },
   {
     "id": 6,
     "title": "Image 6",
-    "src": "/galleries/mua6.webp"
+    "src": "/galleries/mua6.webp",
+    "category": "Makeup"
   },
   {
     "id": 7,
     "title": "Image 7",
-    "src": "/galleries/dekor1.webp"
+    "src": "/galleries/dekor1.webp",
+    "category": "Wedding"
   },
   {
     "id": 8,
     "title": "Image 8",
-    "src": "/galleries/dekor2.webp"
+    "src": "/galleries/dekor2.webp",
+    "category": "Wedding"
   },
   {
     "id": 9,
     "title": "Image 9",
-    "src": "/galleries/dekor3.webp"
+    "src": "/galleries/dekor3.webp",
+    "category": "Wedding"
   }
 ]

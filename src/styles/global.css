@@ -24,5 +24,16 @@
     @apply text-2xl font-semibold text-(--secondary-color);
   }
 
-  
+  .ornamen {
+    @apply transform 
+    scale-x-18 scale-y-18
+    md:scale-x-38 md:scale-y-38 
+    lg:scale-x-60 lg:scale-y-60
+    /* xl:scale-x xl:scale-y */
+    2xl:scale-x-70 2xl:scale-y-70;
+  }
+
+  .advance-gap {
+    @apply -my-45;
+  }
 }
