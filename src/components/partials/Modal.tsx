@@ -101,7 +101,7 @@ export default function Modal({
           exit={{ opacity: 0 }}
         >
           {/* Controls */}
-          <div className="absolute top-4 flex justify-between w-full px-6 z-10">
+          <div className="absolute top-4 flex justify-between w-full px-6 z-40">
             <button
               onClick={onClose}
               className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
