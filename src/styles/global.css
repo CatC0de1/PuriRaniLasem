@@ -20,6 +20,11 @@
     xl:text-2xl;
   }
 
+  .navbar {
+    @apply hover:text-(--primary-color) transition-all
+    active:text-(--secondary-color);
+  }  
+
   .ornamen {
     @apply transform 
     scale-x-18 scale-y-18
