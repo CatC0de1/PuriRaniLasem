@@ -7,7 +7,7 @@ import Sosmed from './partials/Sosmed.astro';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="section bg-(--secondary-bg-color) flex flex-col justify-center items-center w-full gap-10" id="contact">
+<footer class="section bg-(--secondary-bg-color) flex flex-col justify-center items-center w-full gap-10 md:pt-20 lg:pt-25 xl:pt-30" id="contact">
   <div class="flex flex-row justify-start items-center w-full gap-10">
     <div class="flex flex-col xl:flex-row justify-between xl:justify-around items-center xl:items-start w-full gap-10 md:gap-10">
       <div class="hidden md:block w-full h-auto lg:hidden xl:block xl:order-last xl:basis-2/5">
@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear();
             </a>
           </span>
         </div>
-        <div class="md:hidden lg:block lg:w-110 lg:order-last xl:hidden">
+        <div class="w-[95%] md:hidden lg:block lg:w-110 lg:order-last xl:hidden">
           <Map />
         </div>
         <div class="">
