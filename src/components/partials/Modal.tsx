@@ -43,6 +43,32 @@ export default function Modal({
     };
   }, [selectedImage]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!selectedImage) return;
+  
+      switch (event.key) {
+        case 'ArrowRight':
+          if (canPaginateNext) onPaginate(1);
+          break;
+        case 'ArrowLeft':
+          if (canPaginatePrev) onPaginate(-1);
+          break;
+        case 'Escape':
+          onClose();
+          break;
+        default:
+          break;
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+  
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImage, canPaginateNext, canPaginatePrev, onPaginate, onClose]);
+  
   const swipeConfidenceThreshold = 10000;
 
   const swipePower = (offset: number, velocity: number) => {
@@ -78,10 +104,10 @@ export default function Modal({
           <div className="absolute top-4 flex justify-between w-full px-6 z-10">
             <button
               onClick={onClose}
-              className="bg-white rounded-full p-2 shadow hover:bg-gray-200 transition"
+              className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
               aria-label="Close"
             >
-              <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -91,10 +117,10 @@ export default function Modal({
               {canPaginatePrev ? (
                 <button
                   onClick={() => onPaginate(-1)}
-                  className="bg-white rounded-full p-2 shadow hover:bg-gray-200 transition"
+                  className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
                   aria-label="Previous"
                 >
-                  <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="15 18 9 12 15 6" />
                   </svg>
                 </button>
@@ -104,10 +130,10 @@ export default function Modal({
               {canPaginateNext ? (
                 <button
                   onClick={() => onPaginate(1)}
-                  className="bg-white rounded-full p-2 shadow hover:bg-gray-200 transition"
+                  className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
                   aria-label="Next"
                 >
-                  <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
