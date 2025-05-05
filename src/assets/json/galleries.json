@@ -1,56 +1,56 @@
 [
   {
     "id": 1,
-    "title": "Image 1",
+    "title": "Image 1: MakeUp Wedding",
     "src": "/galleries/mua1.webp",
-    "category": "Makeup"
+    "category": "MakeUp"
   },
   {
     "id": 2,
-    "title": "Image 2",
-    "src": "/galleries/mua2.webp",
-    "category": "Makeup"
+    "title": "Image 2: Dekorasi Wedding",
+    "src": "/galleries/dekor2.webp",
+    "category": "Dekor"
   },
   {
     "id": 3,
-    "title": "Image 3",
-    "src": "/galleries/mua3.webp",
-    "category": "Makeup"
+    "title": "Image 3: MakeUp Wedding",
+    "src": "/galleries/mua2.webp",
+    "category": "MakeUp"
   },
   {
     "id": 4,
-    "title": "Image 4",
-    "src": "/galleries/mua4.webp",
-    "category": "Makeup"
+    "title": "Image 4: Dekorasi Wedding",
+    "src": "/galleries/dekor1.webp",
+    "category": "Dekor"
   },
   {
     "id": 5,
-    "title": "Image 5",
-    "src": "/galleries/mua5.webp",
-    "category": "Makeup"
+    "title": "Image 5: MakeUp Wedding",
+    "src": "/galleries/mua3.webp",
+    "category": "MakeUp"
   },
   {
     "id": 6,
-    "title": "Image 6",
-    "src": "/galleries/mua6.webp",
-    "category": "Makeup"
+    "title": "Image 6: Dekorasi Wedding",
+    "src": "/galleries/dekor3.webp",
+    "category": "Dekor"
   },
   {
     "id": 7,
-    "title": "Image 7",
-    "src": "/galleries/dekor1.webp",
-    "category": "Wedding"
+    "title": "Image 7: MakeUp Wedding",
+    "src": "/galleries/mua4.webp",
+    "category": "MakeUp"
   },
   {
     "id": 8,
-    "title": "Image 8",
-    "src": "/galleries/dekor2.webp",
-    "category": "Wedding"
+    "title": "Image 8: MakeUp Wedding",
+    "src": "/galleries/mua5.webp",
+    "category": "MakeUp"
   },
   {
     "id": 9,
-    "title": "Image 9",
-    "src": "/galleries/dekor3.webp",
-    "category": "Wedding"
+    "title": "Image 9: MakeUp Wedding",
+    "src": "/galleries/mua6.webp",
+    "category": "MakeUp"
   }
 ]
