@@ -8,12 +8,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Gallery from '../components/Gallery.astro';
 import Footer from '../components/Footer.astro';
-import Navbar from '../components/partials/Navbar.tsx';
 ---
 
-<Layout>
-	<Navbar client:load />
-	
+<Layout>	
 	<div class="flex flex-col justify-center items-center w-full">
 		<Hero />
 		<Gallery />
