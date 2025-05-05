@@ -24,10 +24,11 @@
   }
 
   .subtitle {
-    @apply font-semibold text-(--secondary-color)
-    text-lg
-    md:text-xl
-    lg:text-2xl;
+    @apply md:font-semibold text-(--secondary-color)
+    text-base
+    md:text-lg
+    lg:text-xl
+    xl:text-2xl;
   }
 
   .ornamen {

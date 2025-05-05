@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Masonry from 'react-masonry-css';
 import { motion } from 'framer-motion';
 import Modal from './Modal';
@@ -25,6 +25,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
   const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0);
+  const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set()); // Track visible images
 
   const filteredImages =
     selectedCategory === 'Semua'
@@ -43,6 +44,30 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
     }
   };
 
+  const observerRefs = useRef<(HTMLDivElement | null)[]>([]); // Refs for each image container
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            setVisibleImages((prev) => new Set(prev).add(index));
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the image is visible
+    );
+
+    observerRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [filteredImages]);
+
   return (
     <div className="space-y-6">
       {/* Filter Buttons */}
@@ -53,6 +78,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
             onClick={() => {
               setSelectedCategory(cat);
               setSelectedIndex(null);
+              setVisibleImages(new Set()); // Reset visible images when category changes
             }}
             className={`bg-[#000] px-3 py-1 rounded-2xl text-sm font-medium transition border-1 md:border-2 ${
               selectedCategory === cat
@@ -74,8 +100,10 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
         {filteredImages.map((img, index) => (
           <motion.div
             key={img.id}
+            ref={(el) => { observerRefs.current[index] = el; }} // Assign ref to each image container
+            data-index={index} // Store index for reference
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={visibleImages.has(index) ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             className="mb-4 cursor-pointer"
             onClick={() => {
@@ -86,7 +114,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
             <img
               src={img.src}
               alt={img.title}
-              className="w-full rounded-lg shadow"
+              className="w-full rounded-lg hover:drop-shadow-[0_0_5px_white] active:drop-shadow-[0_0_4px_#fae220]"
               loading="lazy"
             />
           </motion.div>
