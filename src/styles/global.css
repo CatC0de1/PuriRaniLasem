@@ -13,7 +13,7 @@
 
 @layer utilities {
   .section {
-    @apply px-[10%] py-[5%];
+    @apply px-[8%] py-[5%];
   }
 
   .title {
@@ -46,6 +46,27 @@
     lg:-my-20 lg:gap-5
     xl:-my-10 xl:gap-6
     2xl:-my-5;
+  }
+
+  .sosmed a {
+    @apply flex flex-row items-center justify-start border-2 border-(--separator-color) rounded-xl w-full text-(--secondary-text-color) 
+    transition-all duration-100 ease-in-out
+    hover:text-(--primary-color) hover:border-(--primary-color)
+    active:text-(--secondary-color) active:border-(--secondary-color)
+    active:shadow-lg
+    text-sm py-1 px-3;
+  }
+
+  .sosmed li {
+    @apply w-full;
+  }
+
+  .sosmed svg {
+    @apply w-6 h-6 mr-2;
+  }
+
+  address ul li a svg {
+  
   }
 
   .overflow-hidden {
