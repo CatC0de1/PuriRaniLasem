@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      className={`fixed top-0 w-full z-40 bg-[rgba(0,0,0,0.5)] backdrop-blur-xs py-3 md:py-5 transition-all duration-500 fade-in-down ${
+      className={`fixed top-0 w-full z-10 bg-[rgba(0,0,0,0.5)] backdrop-blur-xs py-3 md:py-5 transition-all duration-500 fade-in-down ${
         isScrolled ? "outline-[1px] outline-(--secondary-bg-color)" : ""
       }`}
     >

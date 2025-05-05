@@ -15,10 +15,10 @@ interface MasonryGalleryProps {
 }
 
 const breakpointColumnsObj = {
-  default: 5,
-  1024: 4,
-  768: 3,
-  500: 2,
+  default: 6,      // >= 1280px
+  1279: 5,         // <= 1279px (xl)
+  1023: 4,         // <= 1023px (lg)
+  767: 3           // <= 767px (md)
 };
 
 export default function MasonryGallery({ images }: MasonryGalleryProps) {
