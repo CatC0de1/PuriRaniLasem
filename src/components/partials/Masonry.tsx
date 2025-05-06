@@ -15,11 +15,13 @@ interface MasonryGalleryProps {
   images: ImageItem[];
 }
 
+// menggunakan breakpoint max-width (kebalikan dari tailwindcss)
 const breakpointColumnsObj = {
-  default: 6,      // >= 1280px
-  1279: 5,         // <= 1279px (xl)
-  1023: 4,         // <= 1023px (lg)
-  767: 3           // <= 767px (md)
+  default: 3,
+  2000: 3,
+  1279: 3,
+  1023: 3,
+  767: 3
 };
 
 export default function MasonryGallery({ images }: MasonryGalleryProps) {
