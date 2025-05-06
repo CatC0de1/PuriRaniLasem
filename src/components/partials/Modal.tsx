@@ -75,7 +75,7 @@ export default function Modal({
     return Math.abs(offset) * velocity;
   };
 
-  const getImageStyles = () => {
+  const getImageStyles = (): React.CSSProperties => {
     if (!imageDimensions) return {};
 
     const { width, height } = imageDimensions;
@@ -83,11 +83,11 @@ export default function Modal({
     const aspectRatio = width / height;
 
     if (aspectRatio < 1) {
-      return { maxHeight: '90vh', width: 'auto' };
+      return { maxHeight: '90vh', width: 'auto', objectFit: 'contain' };
     } else if (aspectRatio > 1) {
-      return { maxWidth: '90vw', height: 'auto' };
+      return { maxWidth: '90vw', height: 'auto', objectFit: 'contain' };
     } else {
-      return { maxWidth: '90vw', maxHeight: '90vh' };
+      return { maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' };
     }
   };
 
