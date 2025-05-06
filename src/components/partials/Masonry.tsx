@@ -100,7 +100,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="flex -ml-4 w-auto"
-          columnClassName="pl-2 lg:pl-3 xl:pl-4"
+          columnClassName="pl-2 md:pl-2.5 lg:pl-3 xl:pl-4"
         >
           {filteredImages.map((img, index) => (
             <motion.div
@@ -110,7 +110,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={visibleImages.has(index) ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="mb-2 lg:mb-3 xl:mb-4 cursor-pointer"
+              className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-4 cursor-pointer"
               onClick={() => {
                 setDirection(0);
                 setSelectedIndex(index);
@@ -119,7 +119,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
               <img
                 src={img.src}
                 alt={img.title}
-                className="w-full rounded-sm lg:rounded-md xl:rounded-lg hover:drop-shadow-[0_0_5px_white] active:drop-shadow-[0_0_4px_#fae220]"
+                className="w-full rounded-sm md:rounded-md xl:rounded-lg hover:drop-shadow-[0_0_5px_white] active:drop-shadow-[0_0_4px_#fae220]"
                 loading="lazy"
               />
             </motion.div>
