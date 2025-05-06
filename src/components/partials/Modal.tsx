@@ -104,7 +104,7 @@ export default function Modal({
           <div className="absolute top-4 flex justify-between w-full px-6 z-40">
             <button
               onClick={onClose}
-              className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
+              className="bg-(--primary-text-color) rounded-full p-2 hover:bg-(--secondary-text-color) transition"
               aria-label="Close"
             >
               <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -117,7 +117,7 @@ export default function Modal({
               {canPaginatePrev ? (
                 <button
                   onClick={() => onPaginate(-1)}
-                  className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
+                  className="bg-(--primary-text-color) rounded-full p-2 hover:bg-(--secondary-text-color) transition"
                   aria-label="Previous"
                 >
                   <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -130,7 +130,7 @@ export default function Modal({
               {canPaginateNext ? (
                 <button
                   onClick={() => onPaginate(1)}
-                  className="bg-(--primary-text-color) rounded-full p-2 shadow hover:bg-(--secondary-text-color) transition"
+                  className="bg-(--primary-text-color) rounded-full p-2 hover:bg-(--secondary-text-color) transition"
                   aria-label="Next"
                 >
                   <svg className="w-5 h-5 text-(--primary-bg-color)" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
