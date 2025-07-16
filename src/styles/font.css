@@ -1,0 +1,9 @@
+@import 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+RO:wght@100..400&display=swap';
+
+/* font weight = 100 - 400 */
+.playwrite-ro {
+  font-family: "Playwrite RO", cursive, sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}

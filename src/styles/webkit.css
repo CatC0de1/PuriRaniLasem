@@ -1,0 +1,24 @@
+/* Warna scrollbar untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* warna latar belakang track scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fae220; /* warna "handle" scrollbar */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a100; /* warna saat dihover */
+}
+
+/* Firefox || scrollbar-color: <thumb-color> <track-color>; */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fae220 #111;
+}
