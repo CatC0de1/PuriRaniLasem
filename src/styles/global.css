@@ -29,3 +29,69 @@ body {
   user-select: none;
   -webkit-user-drag: none;
 }
+
+@import "tailwindcss";
+
+@layer utilities {
+  .section {
+    @apply px-[8%] py-[5%];
+  }
+
+  .title {
+    @apply font-bold text-(--primary-color)
+    text-2xl
+    md:text-3xl
+    lg:text-4xl;
+  }
+
+  .subtitle {
+    @apply md:font-semibold text-(--secondary-color)
+    text-base
+    md:text-lg
+    lg:text-xl
+    xl:text-2xl;
+  }
+
+  .navbar {
+    @apply hover:text-(--primary-color) transition-all
+    active:text-(--secondary-color);
+  }  
+
+  .ornamen {
+    @apply transform 
+    scale-x-18 scale-y-18
+    md:scale-x-38 md:scale-y-38 
+    lg:scale-x-55 lg:scale-y-48
+    xl:scale-x-60 xl:scale-y-58
+    2xl:scale-x-70 2xl:scale-y-68;
+  }
+
+  .advance-gap {
+    @apply w-full flex flex-col justify-center items-center
+    -my-50 gap-3 
+    md:-my-35 md:gap-4
+    lg:-my-20 lg:gap-5
+    xl:-my-10 xl:gap-6
+    2xl:-my-5;
+  }
+
+  .sosmed a {
+    @apply flex flex-row items-center justify-start border-2 border-(--separator-color) rounded-xl w-full text-(--secondary-text-color) 
+    transition-all duration-100 ease-in-out
+    hover:text-(--primary-color) hover:border-(--primary-color)
+    active:text-(--secondary-color) active:border-(--secondary-color)
+    text-sm py-1 px-3;
+  }
+
+  .sosmed li {
+    @apply w-full;
+  }
+
+  .sosmed svg {
+    @apply w-6 h-6 mr-2;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+}
