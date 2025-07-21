@@ -3,6 +3,7 @@ import './styles/font.css'
 import './styles/webkit.css'
 import Home from './components/Home.tsx'
 import Gallery from './components/Gallery.tsx'
+import Footer from './components/Footer.tsx'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <Home />
       <Gallery />
+      <Footer />
     </>
   )
 }
