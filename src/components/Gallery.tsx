@@ -1,6 +1,24 @@
+import { useEffect, useState } from 'react';
 import Ornamen from '../assets/ornamen.svg?react';
+import MasonryGallery from './partials/masonry'
+import galleries from '../assets/json/galleries.json'
+
+interface ImageItem {
+  id: number;
+  title: string;
+  src: string;
+  category: string;
+}
 
 const Gallery = () => {
+
+  const [images, setImages] = useState<ImageItem[]>([]);
+
+  useEffect(() => {
+    setImages(galleries);
+  }, []);
+
+
   return (
     <section className="section flex flex-col justify-center items-center w-full fade-in">
       <Ornamen className="ornamen rotate-180 -mt-30 mt:-mt-20 lg:-mt-10" />
@@ -16,7 +34,7 @@ const Gallery = () => {
         </div>
 
         <div className="w-[95%] md:w-[90%]">
-          {/* <Masonry images={images} /> */}
+          <MasonryGallery images={images} />
         </div>
       </main>
 
