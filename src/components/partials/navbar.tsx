@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +19,14 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav
+    <motion.nav
       id="navbar"
-      className={`fixed top-0 left-0 w-screen z-10 bg-black/60 backdrop-blur-xs py-3 md:py-5 transition-all duration-500 fade-in-down ${
+      className={`fixed top-0 left-0 w-screen z-10 bg-black/80 backdrop-blur-xs py-3 md:py-5 ${
         isScrolled ? "outline-[1px] outline-(--secondary-bg-color)" : ""
       }`}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeOut', delay: 1.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-around items-center">
@@ -86,6 +90,6 @@ export default function Navbar() {
           </li>
         </ul>
       )}
-    </nav>
+    </motion.nav>
   );
 }

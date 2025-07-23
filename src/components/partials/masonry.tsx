@@ -75,7 +75,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-2 justify-center">
         {categories.map((cat) => (
-          <button
+          <motion.button
             key={cat}
             onClick={() => {
               setSelectedCategory(cat);
@@ -86,9 +86,13 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
                 ? 'text-[#fae220] border-[#fae220]'
                 : 'hover:bg-[#111]'
             }`}
+            initial={{ opacity: 0}}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.0, ease: 'easeOut', delay: 1.0 }}
           >
             {cat.charAt(0) + cat.slice(1)}
-          </button>
+          </motion.button>
         ))}
       </div>
 
