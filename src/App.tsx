@@ -8,6 +8,10 @@ import Navbar  from './components/partials/navbar.tsx'
 
 function App() {
 
+	document.addEventListener('dragstart', function(event) {
+  	event.preventDefault();
+	});
+
   return (
     <>
       <Navbar />

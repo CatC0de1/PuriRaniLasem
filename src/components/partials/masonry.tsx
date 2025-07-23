@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Masonry from 'react-masonry-css';
 import { motion } from 'framer-motion';
-// import Modal from './Modal';
+import Modal from './modal';
 
 interface ImageItem {
   id: number;
@@ -26,6 +26,8 @@ const breakpointColumnsObj = {
 export default function MasonryGallery({ images }: MasonryGalleryProps) {
   const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set()); // Track visible images
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState(0);
 
   const filteredImages =
     selectedCategory === 'Semua'
@@ -33,6 +35,16 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
       : images.filter((img) => img.category === selectedCategory);
 
   const categories = ['Semua', ...Array.from(new Set(images.map((img) => img.category)))];
+  const selectedImage = selectedIndex !== null ? filteredImages[selectedIndex] : null;
+
+  const paginate = (newDirection: number) => {
+    if (selectedIndex === null) return;
+    const newIndex = selectedIndex + newDirection;
+    if (newIndex >= 0 && newIndex < filteredImages.length) {
+      setDirection(newDirection);
+      setSelectedIndex(newIndex);
+    }
+  };
 
   const observerRefs = useRef<(HTMLDivElement | null)[]>([]); // Refs for each image container
 
@@ -95,6 +107,10 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
             animate={visibleImages.has(index) ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-4 cursor-pointer"
+            onClick={() => {
+              setDirection(0);
+              setSelectedIndex(index);
+            }}
           >
             <img
               src={img.src}
@@ -105,6 +121,15 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
           </motion.div>
         ))}
       </Masonry>
+
+      {/* Modal */}
+      <Modal
+        selectedImage={selectedImage}
+        onClose={() => setSelectedIndex(null)}
+        onPaginate={paginate}
+        canPaginateNext={selectedIndex !== null && selectedIndex < filteredImages.length - 1}
+        canPaginatePrev={selectedIndex !== null && selectedIndex > 0}
+      />
     </div>
   );
 }
