@@ -20,6 +20,7 @@ export default function Modal({
   canPaginatePrev,
 }: ModalProps) {
   const [imageDimensions, setImageDimensions] = useState<{ width: number; height: number } | null>(null);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -85,6 +86,11 @@ export default function Modal({
     }
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity
+  }
+
   return (
     <AnimatePresence>
       {selectedImage && (
@@ -141,15 +147,41 @@ export default function Modal({
           <motion.div
             key={selectedImage.src}
             className="max-w-4xl w-full px-4 flex justify-center items-center"
-            initial={{ x: 0, opacity: 1 }}
-            exit={{ opacity: 0 }}
-        //     drag="x"
-        //     dragConstraints={{ left: 0, right: 0 }}
+            custom={direction}
+            variants={{
+              enter: (dir: number) => ({
+                x: dir > 0 ? 300 : -300,
+                opacity: 0,
+              }),
+              center: { x: 0, opacity: 1 },
+              exit: (dir: number) => ({
+                x: dir > 0 ? -300 : 300,
+                opacity: 0,
+              }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ x: { type: 'spring', stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
+
+              if (swipe < -swipeConfidenceThreshold && canPaginateNext) {
+                setDirection(1);
+                onPaginate(1);
+              } else if (swipe > swipeConfidenceThreshold && canPaginatePrev) {
+                setDirection(-1);
+                onPaginate(-1);
+              }
+            }}
           >
             <img
               src={selectedImage.src}
               alt={selectedImage.title}
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg"
               style={getImageStyles()}
             />
           </motion.div>
