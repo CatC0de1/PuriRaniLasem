@@ -10,6 +10,7 @@ interface ModalProps {
   onPaginate: (direction: number) => void;
   canPaginateNext: boolean;
   canPaginatePrev: boolean;
+  direction: number;
 }
 
 export default function Modal({
@@ -18,9 +19,10 @@ export default function Modal({
   onPaginate,
   canPaginateNext,
   canPaginatePrev,
+  direction,
 }: ModalProps) {
   const [imageDimensions, setImageDimensions] = useState<{ width: number; height: number } | null>(null);
-  const [direction, setDirection] = useState(0);
+  // const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -166,14 +168,14 @@ export default function Modal({
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
-            onDragEnd={(e, { offset, velocity }) => {
+            onDragEnd={(_, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x);
 
               if (swipe < -swipeConfidenceThreshold && canPaginateNext) {
-                setDirection(1);
+                // setDirection(1);
                 onPaginate(1);
               } else if (swipe > swipeConfidenceThreshold && canPaginatePrev) {
-                setDirection(-1);
+                // setDirection(-1);
                 onPaginate(-1);
               }
             }}

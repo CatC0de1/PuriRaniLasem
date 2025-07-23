@@ -112,7 +112,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
             transition={{ duration: 0.5 }}
             className="mb-2 md:mb-2.5 lg:mb-3 xl:mb-4 cursor-pointer"
             onClick={() => {
-              setDirection(0);
+              // setDirection(0);
               setSelectedIndex(index);
             }}
           >
@@ -133,6 +133,7 @@ export default function MasonryGallery({ images }: MasonryGalleryProps) {
         onPaginate={paginate}
         canPaginateNext={selectedIndex !== null && selectedIndex < filteredImages.length - 1}
         canPaginatePrev={selectedIndex !== null && selectedIndex > 0}
+        direction={direction}
       />
     </div>
   );
