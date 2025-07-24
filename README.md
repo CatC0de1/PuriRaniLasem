@@ -24,7 +24,7 @@ Website dapat diakses secara publik di: [https://puri-ranilasem.vercel.app](http
 ## Teknologi yang Digunakan
 
 - Language: TypeScript
-- Framework: [React + Vite]
+- Framework: React + Vite
 - Hosting: Vercel
 - Another Tools: Tailwind CSS, Framer Motion 
 
@@ -32,7 +32,7 @@ Website dapat diakses secara publik di: [https://puri-ranilasem.vercel.app](http
 
 ## Catatan
 
-Ini adalah repositori source code untuk tampilan website. Konten gambar, logo, dan teks yang digunakan dalam galeri atau bagian lainnya merupakan milik dari [InovaWeb] dan tidak untuk digunakan ulang tanpa izin tertulis.
+Ini adalah repositori source code untuk tampilan website. Konten gambar, logo, dan teks yang digunakan dalam galeri atau bagian lainnya merupakan milik dari InovaWeb dan tidak untuk digunakan ulang tanpa izin tertulis.
 
 ---
 
@@ -46,6 +46,6 @@ Kode sumber pada repositori ini dilisensikan di bawah lisensi [MIT](LICENSE).
 
 ## Kontak
 
-Untuk informasi lebih lanjut, silakan hubungi kami melalui email: [iyanzuli35@gmail.com](mailto:iyanzuli35@gmail.com)
+Untuk informasi lebih lanjut, silakan hubungi kami, InovaWeb, melalui email: [iyanzuli35@gmail.com](mailto:iyanzuli35@gmail.com)
 
 ---
