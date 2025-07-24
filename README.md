@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# Puri RaniLasem
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website ini merupakan situs resmi untuk keperluan branding Puri RaniLasem, yang memberikan layanan makeup artist, dekorasi, dan sewa costum.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Preview
 
-## Expanding the ESLint configuration
+Website dapat diakses secara publik di: [https://puri-ranilasem.vercel.app](https://puri-ranilasem.vercel.app)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Fitur Utama
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Halaman landing modern dan responsif
+- Galeri produk atau layanan
+- Desain visual yang mencerminkan identitas brand
+- Navigasi interaktif dan user-friendly
+- Informasi kontak dan sosial media
+- SEO friendly dan performa optimal
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Teknologi yang Digunakan
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Language: TypeScript
+- Framework: [React + Vite]
+- Hosting: Vercel
+- Another Tools: Tailwind CSS, Framer Motion 
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Catatan
+
+Ini adalah repositori source code untuk tampilan website. Konten gambar, logo, dan teks yang digunakan dalam galeri atau bagian lainnya merupakan milik dari [InovaWeb] dan tidak untuk digunakan ulang tanpa izin tertulis.
+
+---
+
+## Lisensi
+
+Kode sumber pada repositori ini dilisensikan di bawah lisensi [MIT](LICENSE).
+
+> **Namun, konten seperti gambar, logo, dan teks milik brand tidak termasuk dalam lisensi MIT dan tidak boleh digunakan ulang tanpa izin.**
+
+---
+
+## Kontak
+
+Untuk informasi lebih lanjut, silakan hubungi kami melalui email: [iyanzuli35@gmail.com](mailto:iyanzuli35@gmail.com)
+
+---
