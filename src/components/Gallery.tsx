@@ -60,7 +60,7 @@ const Gallery = () => {
       </main>
 
       <motion.span
-        className="ornamen -mt-30 mt:-mt-20 lg:-mt-10"
+        className="ornamen mt:-mt-20 lg:-mt-10"
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
